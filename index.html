@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website Title</title>
+    <script>
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            var intervalId = setInterval(function () {
+                minutes = parseInt(timer / 60, 10)
+                seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+                if (minutes == 0 && seconds < 1){
+                    notifyDevice();
+                    clearInterval(intervalId);
+                    display.textContent = "00:00";
+                }
+        }, 1000);
+    
+        document.getElementById('reset').addEventListener('click', function () {
+            clearInterval(intervalId);
+            display.textContent = "00:00";
+            });
+        }
+
+        function notifyDevice() {
+            askNotificationPermission();
+            const text = `HEY! Your task is now overdue.`;
+            const notification = new Notification("To do list", { body: text});
+        }
+
+        function askNotificationPermission() {
+        // Check if the browser supports notifications
+            if (!("Notification" in window)) {
+                console.log("This browser does not support notifications.");
+                return;
+            }
+            Notification.requestPermission().then((permission) => {
+            // set the button to shown or hidden, depending on what the user answers
+            console.log(permission);
+            });
+        }
+
+    window.onload = function () {
+    var count = 60,
+        display = document.querySelector('#time');
+        display.textContent = "00:00";
+        document.getElementById('TEST').addEventListener('click', function () { 
+    	    startTimer(count = 1, display);
+        });
+        document.getElementById('15 mins').addEventListener('click', function () { 
+    	    startTimer(count * 15, display);
+        });
+        document.getElementById('30 mins').addEventListener('click', function () { 
+    	    startTimer(count * 30, display);
+        }); 
+        document.getElementById('60 mins').addEventListener('click', function () { 
+    	    startTimer(count * 60, display);
+        });       
+    };
+    
+    </script>
+    <style>
+        /* Basic CSS for styling */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>EZ TIMER</h1>
+        </header>
+        <main>
+            <section>
+                <!-- <h2>Section 1</h2>
+                <p>This is section 1 content. Replace this with your own content.</p> -->
+                <div> <span id="time"></span> </div>
+                <button id="TEST">TEST</button>
+                <button id="15 mins">15 mins</button>
+                <button id="30 mins">30 mins</button>
+                <button id="60 mins">1 hr</button>
+                <button id="reset">Reset</button>
+            </section>
+            <!--<section>
+                <h2>Section 2</h2>
+                <p>This is section 2 content. Replace this with your own content.</p> 
+            </section>
+            <section>
+                <h2>Section 3</h2>
+                <p>This is section 3 content. Replace this with your own content.</p>
+            </section> -->
+        </main>
+        <footer>
+            <p>&copy; 2024 Your Website Name. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -32,8 +32,11 @@
             });
         }
 
+        document.getElementById('enable').addEventListener('click', function () { 
+    	    askNotificationPermission();
+        });  
+
         function notifyDevice() {
-            askNotificationPermission();
             const text = `HEY! Your task is now overdue.`;
             const notification = new Notification("To do list", { body: text});
         }
@@ -106,6 +109,8 @@
                 <button id="30 mins">30 mins</button>
                 <button id="60 mins">1 hr</button>
                 <button id="reset">Reset</button>
+                <button id="enable">Enable notifications</button>
+
             </section>
             <!--<section>
                 <h2>Section 2</h2>

@@ -46,7 +46,6 @@
             }
             Notification.requestPermission().then((permission) => {
             // set the button to shown or hidden, depending on what the user answers
-            permission = granted;
             alert(permission);
             });
         }
@@ -107,7 +106,6 @@
                 <button id="30 mins">30 mins</button>
                 <button id="60 mins">1 hr</button>
                 <button id="reset">Reset</button>
-                <button id="enable">Enable notifications</button>
             </section>
             <!--<section>
                 <h2>Section 2</h2>

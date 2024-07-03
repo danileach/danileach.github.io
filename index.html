@@ -32,10 +32,6 @@
             });
         }
 
-        document.getElementById('enable').addEventListener('click', function () { 
-    	    askNotificationPermission();
-        });  
-
         function notifyDevice() {
             const text = `HEY! Your task is now overdue.`;
             const notification = new Notification("To do list", { body: text});
@@ -68,7 +64,10 @@
         }); 
         document.getElementById('60 mins').addEventListener('click', function () { 
     	    startTimer(count * 60, display);
-        });       
+        });
+        document.getElementById('enable').addEventListener('click', function () { 
+    	    askNotificationPermission();
+        });         
     };
     
     </script>

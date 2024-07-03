@@ -32,15 +32,14 @@
             });
         }
 
-        document.getElementById('enable').addEventListener('click', function () { 
-    	    // Check if the browser supports notifications
+        document.getElementById('enable').addEventListener('click', function askNotificationPermission() {
+        // Check if the browser supports notifications
             if (!("Notification" in window)) {
                 alert("This browser does not support notifications.");
                 return;
             }
             Notification.requestPermission().then((permission) => {
             // set the button to shown or hidden, depending on what the user answers
-            notificationBtn.style.display = permission === "granted" ? "none" : "block";
             alert(permission);
             });
         });  

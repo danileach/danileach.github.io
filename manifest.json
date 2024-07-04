@@ -1,16 +1,16 @@
 {
-    "name": "Timer Manifest",
+    "name": "MAYA",
     "version": "1.0.0",
     "start_url": "https://danileach.github.io/",
     "display": "standalone",
     "icons": [
     {
-      "src": "/danileach.github.io/kawaii.jpg",
+      "src": "/icons/kawaii.jpg",
       "sizes": "192x192",
       "type": "image/jpg"
     },
     {
-        "src": "/danileach.github.io/kawaii.jpg",
+        "src": "/icons/kawaii.jpg",
         "sizes": "512x512",
         "type": "image/jpg"
     }]

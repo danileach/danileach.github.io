@@ -21,7 +21,7 @@
                     timer = duration;
                 }
                 if (minutes == 0 && seconds < 1){
-                    notifyDevice();
+                    showNotification();
                     clearInterval(intervalId);
                     display.textContent = "00:00";
                 }
@@ -33,12 +33,26 @@
             });
         }
 
-        function notifyDevice() {
+        navigator.serviceWorker.register("sw.js");
+
+        function showNotification() {
+            Notification.requestPermission().then((result) => {
+                if (result === "granted") {
+                    navigator.serviceWorker.ready.then((registration) => {
+                        registration.showNotification("Simple Notification", {
+                        body: "Time's up!",
+                    });
+                });
+            }
+        });
+}
+
+        /*function notifyDevice() {
             const text = `HEY! Your task is now overdue.`;
             const notification = new Notification("To do list", { body: text});
-        }
+        }*/
 
-        function askNotificationPermission() {
+        /*function askNotificationPermission() {
         // Check if the browser supports notifications
             if (!("Notification" in window)) {
                 alert("This browser does not support notifications.");
@@ -48,7 +62,7 @@
             // set the button to shown or hidden, depending on what the user answers
             alert(permission);
             });
-        }
+        }*/
 
     window.onload = function () {
     var count = 60,
@@ -66,8 +80,8 @@
         document.getElementById('60 mins').addEventListener('click', function () { 
     	    startTimer(count * 60, display);
         });
-        document.getElementById('enable').addEventListener('click', function () { 
-    	    askNotificationPermission();
+        document.getElementById('testy').addEventListener('click', function () { 
+    	    showNotification();
         });         
     };
     

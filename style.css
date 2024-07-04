@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;700;900&display=swap");
+body {
+  font-family: "Exo 2", sans-serif;
+  background: linear-gradient(142deg, #3fa1fb 0%, #fc46a8 100%);
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0rem;
+  display: flexbox;
+  align-content: start;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.title-wrapper {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  transform: skew(0, -10deg);
+}
+
+.top-title {
+  order: 1;
+  text-align: center;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-style: wavy;
+  display: block;
+  color: #fff;
+  font-size: clamp(1rem, 4vw, 1.5rem);
+  margin-bottom: -7rem;
+  padding-right: 2rem;
+}
+
+.bottom-title {
+  order: 3;
+  text-align: center;
+  display: block;
+  color: #fff;
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  margin-top: -6rem;
+  padding-left: 7rem;
+}
+
+.sweet-title {
+  order: 2;
+  color: #fde9ff;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: clamp(3rem, 10vw, 6rem);
+  line-height: 0.75em;
+  text-align: center;
+  text-shadow: 3px 1px 1px #4af7ff, 2px 2px 1px #165bfb, 4px 2px 1px #4af7ff, 3px 3px 1px #165bfb, 5px 3px 1px #4af7ff, 4px 4px 1px #165bfb, 6px 4px 1px #4af7ff, 5px 5px 1px #165bfb, 7px 5px 1px #4af7ff, 6px 6px 1px #165bfb, 8px 6px 1px #4af7ff, 7px 7px 1px #165bfb, 9px 7px 1px #4af7ff;
+}
+.sweet-title span {
+  display: block;
+  position: relative;
+}
+.sweet-title span:before {
+  content: attr(data-text);
+  position: absolute;
+  text-shadow: 2px 2px 1px #e94aa1, -1px -1px 1px #c736f9, -2px 2px 1px #e94aa1, 1px -1px 1px #f736f9;
+  z-index: 1;
+}
+.sweet-title span:nth-child(1) {
+  padding-right: 2.25rem;
+}
+.sweet-title span:nth-child(2) {
+  padding-left: 2.25rem;
+}
+
+.timer span {
+   font-size: 35px; 
+   font-weight: lighter;
+   justify-content: center;
+    position: absolute;
+    bottom: 10px;
+    left: 100px;
+    right: 100px;
+   
+}
+
+button {
+    --border: 5px;    /* the border width */
+    --color: #37E8FC; /* the color */
+    
+    font-size: 35px;
+    padding: 0.25em 1.2em;
+    cursor: pointer;
+    border: none;
+    font-weight: bold;
+    color: var(--color);
+    box-shadow: 
+      0 0 0 200px inset var(--c,#0000),
+      0 0 0 var(--border) inset var(--color);
+    background: linear-gradient(var(--color) 0 0) bottom/100% 0% no-repeat;
+    transition: color var(--t,0.3s), background-size 0.3s;
+    position: relative;
+  }
+  button:before,
+  button:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    clip-path: polygon(0 0,100% 0,calc(100% + 200vmax) 200vmax,200vmax calc(100% + 200vmax),0 100%);
+    box-shadow: 0 0 0 200vmax var(--color);
+    filter: brightness(1.1);
+  }
+  button:after {
+    inset: 0 0 0 auto;
+    filter: brightness(0.9);
+  }
+  button:hover,
+  button:active{
+    background-size: 100% 100%;
+    color: #fff;
+    --t: 0.2s 0.1s;
+  }
+  button:focus-visible {
+    outline-offset: calc(-1*var(--border));
+    outline: var(--border) solid #000a;
+  }
+  button:active {
+    --c: #0005;
+    transform: translate(4px,4px);
+    transition: none;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 70px;
+    justify-content: center;
+    position: absolute;
+    bottom: 150px;
+    left: 100px;
+    right: 100px;
+}
+  
+  
+  /*body {
+    display:grid;
+    grid-gap:220px;
+    align-content: end;
+    justify-content: left;
+  }*/

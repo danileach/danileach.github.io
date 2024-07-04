@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="style.css">
     <title>Your Website Title</title>
     <script>
         function startTimer(duration, display) {
@@ -39,7 +40,7 @@
             Notification.requestPermission().then((result) => {
                 if (result === "granted") {
                     navigator.serviceWorker.ready.then((registration) => {
-                        registration.showNotification("Simple Notification", {
+                        registration.showNotification("Time Notification", {
                         body: "Time's up!",
                     });
                 });
@@ -47,30 +48,10 @@
         });
 }
 
-        /*function notifyDevice() {
-            const text = `HEY! Your task is now overdue.`;
-            const notification = new Notification("To do list", { body: text});
-        }*/
-
-        /*function askNotificationPermission() {
-        // Check if the browser supports notifications
-            if (!("Notification" in window)) {
-                alert("This browser does not support notifications.");
-                return;
-            }
-            Notification.requestPermission().then((permission) => {
-            // set the button to shown or hidden, depending on what the user answers
-            alert(permission);
-            });
-        }*/
-
     window.onload = function () {
         var timercount = 60,
         display = document.querySelector('#time');
         display.textContent = "00:00";
-        document.getElementById('TEST').addEventListener('click', function () { 
-    	    startTimer(timercount = 1, display);
-        });
         document.getElementById('15 mins').addEventListener('click', function () { 
     	    startTimer(timercount * 15, display);
         });
@@ -83,43 +64,28 @@
     };
     
     </script>
-    <style>
-        /* Basic CSS for styling */
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        .container {
-            width: 80%;
-            max-width: 800px;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1, p {
-            text-align: center;
-        }
-    </style>
+
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>MAYA</h1>
-        </header>
+    <section class="header">
+        <divc class="title-wrapper">
+          <h1 class="sweet-title">
+            <span data-text="MAYA">MAYA</span>
+          </h1>
+          <span class="top-title"></span>
+          <span class="bottom-title">TIME'S UP!</span>
+          </div>
+      </section>
         <main>
             <section>
                 <!-- <h2>Section 1</h2>
                 <p>This is section 1 content. Replace this with your own content.</p> -->
-                <div> <span id="time"></span> </div>
-                <button id="TEST">TEST</button>
+                <h1 class="timer"> <span id="time"></span> </h1>
+                <div class="container">
                 <button id="15 mins">15 mins</button>
-                <button id="30 mins">30 mins</button>
-                <button id="60 mins">1 hr</button>
-                <button id="reset">Reset</button>
+                <button id="30 mins" button style="--color:#fc46a8">30 mins</button>
+                <button id="60 mins" button style="--color:#c736f9">1 hr</button>
+                </div>
 
             </section>
             <!--<section>
@@ -129,10 +95,10 @@
             <section>
                 <h2>Section 3</h2>
                 <p>This is section 3 content. Replace this with your own content.</p>
-            </section> -->
+            </section>-->
         </main>
         <footer>
-            <p>&copy; 2024 Your Website Name. All rights reserved.</p>
+            
         </footer>
     </div>
 </body>

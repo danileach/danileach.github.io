@@ -65,20 +65,20 @@
         }*/
 
     window.onload = function () {
-    var count = 60,
+        var timercount = 60,
         display = document.querySelector('#time');
         display.textContent = "00:00";
         document.getElementById('TEST').addEventListener('click', function () { 
-    	    startTimer(count = 1, display);
+    	    startTimer(timercount = 1, display);
         });
         document.getElementById('15 mins').addEventListener('click', function () { 
-    	    startTimer(count * 15, display);
+    	    startTimer(timercount * 15, display);
         });
         document.getElementById('30 mins').addEventListener('click', function () { 
-    	    startTimer(count * 30, display);
+    	    startTimer(timercount * 30, display);
         }); 
         document.getElementById('60 mins').addEventListener('click', function () { 
-    	    startTimer(count * 60, display);
+    	    startTimer(timercount * 60, display);
         });      
     };
     

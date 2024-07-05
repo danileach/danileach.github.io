@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;700;900&display=swap");
+
 body {
   font-family: "Exo 2", sans-serif;
   background: linear-gradient(142deg, #3fa1fb 0%, #fc46a8 90%);
-  height: 100%;
   min-height: 100vh;
   margin: 0;
   padding: 0;
@@ -11,14 +11,11 @@ body {
 .header {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0rem;
-  display: flexbox;
-  align-content: start;
+  padding: 1rem; /* Adjust padding as per your design */
+  display: flex;
+  align-items: center;
   justify-content: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative; /* Changed to relative */
   z-index: 100;
 }
 
@@ -32,25 +29,17 @@ body {
 .top-title {
   order: 1;
   text-align: center;
-  text-decoration: wavy;
-  text-decoration-line:underline ;
-  display: block;
   color: #BEFA4F;
   font-size: clamp(1rem, 4vw, 1.5rem);
-  margin-bottom: -7.5rem;
-  padding-right: 2rem;
+  margin-bottom: -7.5rem; /* Adjust margin as per your design */
 }
 
 .bottom-title {
   order: 3;
   text-align: center;
-  text-decoration: wavy;
-  text-decoration-line:overline ;
-  display: block;
   color: #BEFA4F;
   font-size: clamp(1rem, 3vw, 1.5rem);
-  margin-top: -5rem;
-  padding-left: 9rem;
+  margin-top: -5rem; /* Adjust margin as per your design */
 }
 
 .sweet-title {
@@ -63,101 +52,79 @@ body {
   text-align: center;
   text-shadow: 3px 1px 1px #4af7ff, 2px 2px 1px #165bfb, 4px 2px 1px #4af7ff, 3px 3px 1px #165bfb, 5px 3px 1px #4af7ff, 4px 4px 1px #165bfb, 6px 4px 1px #4af7ff, 5px 5px 1px #165bfb, 7px 5px 1px #4af7ff, 6px 6px 1px #165bfb, 8px 6px 1px #4af7ff, 7px 7px 1px #165bfb, 9px 7px 1px #4af7ff;
 }
-.sweet-title span {
-  display: block;
-  position: relative;
-}
-.sweet-title span:before {
-  content: attr(data-text);
+
+.timer span {
+  font-size: 150px;
+  letter-spacing: 12px;
+  font-family: 'Courier New', Courier, monospace;
+  color: #4af7ff;
+  font-weight: lighter;
   position: absolute;
+  bottom: 5%; /* Adjust bottom position as per your design */
+  left: 5%; /* Adjust left position as per your design */
+  right: 5%; /* Adjust right position as per your design */
   text-shadow: 2px 2px 1px #e94aa1, -1px -1px 1px #c736f9, -2px 2px 1px #e94aa1, 1px -1px 1px #f736f9;
   z-index: 1;
 }
-.sweet-title span:nth-child(1) {
-  padding-right: 2.25rem;
-}
-.sweet-title span:nth-child(2) {
-  padding-left: 2.25rem;
-}
-
-.timer span {
-   font-size: 150px;
-   letter-spacing: 12px;
-   font-family: 'Courier New', Courier, monospace;
-   color: #4af7ff;
-   font-weight: lighter;
-    position: absolute;
-    bottom: 2em;
-    left: 4em;
-    right: 1em;
-    text-shadow: 2px 2px 1px #e94aa1, -1px -1px 1px #c736f9, -2px 2px 1px #e94aa1, 1px -1px 1px #f736f9;
-  z-index: 1;
-}
-
 
 button {
-    --border: 5px;    /* the border width */
-    --color: #37E8FC; /* the color */
-    
-    font-size: 35px;
-    padding: 0.25em 1.2em;
-    cursor: pointer;
-    border: none;
-    font-weight: bold;
-    color: var(--color);
-    box-shadow: 
-      0 0 0 200px inset var(--c,#0000),
-      0 0 0 var(--border) inset var(--color);
-    background: linear-gradient(var(--color) 0 0) bottom/100% 0% no-repeat;
-    transition: color var(--t,0.3s), background-size 0.3s;
-    position: relative;
-  }
-  button:before,
-  button:after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    clip-path: polygon(0 0,100% 0,calc(100% + 200vmax) 200vmax,200vmax calc(100% + 200vmax),0 100%);
-    box-shadow: 0 0 0 200vmax var(--color);
-    filter: brightness(1.1);
-  }
-  button:after {
-    inset: 0 0 0 auto;
-    filter: brightness(0.9);
-  }
-  button:hover,
-  button:active{
-    background-size: 100% 100%;
-    color: #fff;
-    --t: 0.2s 0.1s;
-  }
-  button:focus-visible {
-    outline-offset: calc(-1*var(--border));
-    outline: var(--border) solid #000a;
-  }
-  button:active {
-    --c: #0005;
-    transform: translate(4px,4px);
-    transition: none;
-  }
-  
-  .container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 70px;
-    justify-content: center;
-    position: absolute;
-    bottom: 150px;
-    left: 100px;
-    right: 100px;
+  --border: 5px;
+  --color: #37E8FC;
+  font-size: 35px;
+  padding: 0.25em 1.2em;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  color: var(--color);
+  box-shadow: 
+    0 0 0 200px inset var(--c,#0000),
+    0 0 0 var(--border) inset var(--color);
+  background: linear-gradient(var(--color) 0 0) bottom/100% 0% no-repeat;
+  transition: color var(--t,0.3s), background-size 0.3s;
+  position: relative;
 }
 
-  
-  
-  /*body {
-    display:grid;
-    grid-gap:220px;
-    align-content: end;
-    justify-content: left;
-  }*/
+button:before,
+button:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  clip-path: polygon(0 0,100% 0,calc(100% + 200vmax) 200vmax,200vmax calc(100% + 200vmax),0 100%);
+  box-shadow: 0 0 0 200vmax var(--color);
+  filter: brightness(1.1);
+}
+
+button:after {
+  inset: 0 0 0 auto;
+  filter: brightness(0.9);
+}
+
+button:hover,
+button:active {
+  background-size: 100% 100%;
+  color: #fff;
+  --t: 0.2s 0.1s;
+}
+
+button:focus-visible {
+  outline-offset: calc(-1*var(--border));
+  outline: var(--border) solid #000a;
+}
+
+button:active {
+  --c: #0005;
+  transform: translate(4px,4px);
+  transition: none;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Responsive grid */
+  gap: 3%; /* Adjust gap as per your design */
+  justify-content: center;
+  position: absolute;
+  bottom: 10%; /* Adjust bottom position as per your design */
+  left: 10%; /* Adjust left position as per your design */
+  right: 10%; /* Adjust right position as per your design */
+}
